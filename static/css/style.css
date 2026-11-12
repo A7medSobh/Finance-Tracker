@@ -1,0 +1,157 @@
+
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6fa;
+    color: #263247;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* Main heading */
+h1 {
+    text-align: center;
+    color: #172554;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+/* Section headings */
+h2 {
+    color: #1e293b;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Main transaction form */
+.transaction-form {
+    background-color: white;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Form labels */
+.transaction-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #475569;
+}
+
+/* Input fields and dropdowns */
+.transaction-form input,
+.transaction-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-bottom: 18px;
+    background-color: white;
+}
+
+/* Input focus effect */
+.transaction-form input:focus,
+.transaction-form select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Add button */
+.add-button {
+    width: 100%;
+    padding: 13px;
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-button:hover {
+    background-color: #15803d;
+}
+
+/* Transaction history table */
+.transaction-table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Table headings */
+.transaction-table th {
+    background-color: #1e293b;
+    color: white;
+    padding: 16px;
+    text-align: left;
+}
+
+/* Table cells */
+.transaction-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Alternating row colors */
+.transaction-table tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Hover effect */
+.transaction-table tr:hover {
+    background-color: #eff6ff;
+}
+
+/* Delete form */
+.delete-form {
+    margin: 0;
+}
+
+/* Delete button */
+.delete-button {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+    background-color: #b91c1c;
+}
+
+/* Responsive layout */
+@media (max-width: 650px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .transaction-table {
+        font-size: 12px;
+    }
+
+    .transaction-table th,
+    .transaction-table td {
+        padding: 9px 6px;
+    }
+}
