@@ -11,7 +11,7 @@
 
     <h1>Personal Finance Tracker</h1>
 
-    <h2>Add Transaction</h2>
+    <h2>Add Transaction: </h2>
 
     <form action="/add_transaction" method="POST" class="transaction-form">
 
@@ -71,11 +71,17 @@
         <td>{{ transaction.category }}</td>
         <td>{{ transaction.type }}</td>
         <td>{{ transaction.date }}</td>
+
         <td>
-            <form action="/delete_transaction/{{ transaction.id }}" method="POST" class="delete-form">
+            <details>
+                <summary>Actions</summary>
+            <a href="/edit_transaction/{{ transaction.id }}">Modify</a>
+            <form action="/delete_transaction/{{ transaction.id }}" method="POST">
                 <button type="submit" class="delete-button">Delete</button>
             </form>
+            </details>
         </td>
+
     </tr>
     {% endfor %}
 </table>

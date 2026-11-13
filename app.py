@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from database.db import create_table, insertTransaction, getTransaction, deleteTransaction
+from database.db import create_table, insertTransaction, getTransaction, deleteTransaction, getTransactionById, updateTransaction
 
 app = Flask(__name__)
 
@@ -32,6 +32,24 @@ def add_transaction():
 def delete_transaction(transactionID):
 
     deleteTransaction(transactionID)
+    return redirect("/")
+
+
+@app.route("/edit_transaction/<int:transactionID>")
+def edit_transaction(transactionID):
+    transaction = getTransactionById(transactionID)
+    return render_template("edit.html", transaction=transaction)
+
+@app.route("/update_transaction/<int:transactionID>", methods=["POST"])
+def update_transaction(transactionID):
+    description = request.form["description"]
+    amount = float(request.form["amount"])
+    category = request.form["category"]
+    type = request.form["type"]
+    date = request.form["date"]
+
+    updateTransaction(transactionID, description, amount, category, type, date )
+
     return redirect("/")
 
 

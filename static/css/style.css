@@ -1,5 +1,4 @@
 
-/* General page styling */
 * {
     box-sizing: border-box;
 }
@@ -22,7 +21,7 @@ h1 {
 
 /* Section headings */
 h2 {
-    color: #1e293b;
+    color: #000000;
     font-size: 22px;
     margin-bottom: 20px;
 }

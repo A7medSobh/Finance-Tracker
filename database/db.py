@@ -1,6 +1,5 @@
 import sqlite3 as sql
 
-
 def create_connection():
     connection = sql.connect("finance.db")
     connection.row_factory = sql.Row
@@ -60,6 +59,30 @@ def deleteTransaction(transactionID):
         DELETE FROM transactions
         WHERE id = ?
     """, (transactionID,))
+
+    connection.commit()
+    connection.close()
+
+
+def getTransactionById(transactionID):
+    connection = create_connection()
+
+    transaction = connection.execute("""
+        SELECT * FROM transactions
+        WHERE id = ?
+    """, (transactionID,)).fetchone()
+
+    connection.close()
+    return transaction
+
+def updateTransaction(transactionID, description, amount, category, type, date):
+    connection = create_connection()
+
+    connection.execute("""
+        UPDATE transactions
+        SET description = ?, amount = ?, category = ?, type = ?, date = ?
+        WHERE id = ?
+    """, (description, amount, category, type, date, transactionID))
 
     connection.commit()
     connection.close()
