@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Transaction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <h1>Edit Transaction</h1>
+
+    <form action="/update_transaction/{{ transaction.id }}" method="POST" class="transaction-form">
+
+        <label>Description:</label>
+        <input type="text" name="description" value="{{ transaction.description }}" required>
+
+        <label>Amount:</label>
+        <input type="number" name="amount" step="0.01" min="0.01" value="{{ transaction.amount }}" required>
+
+        <label>Category:</label>
+        <select name="category" required>
+            {% for category in ["Groceries", "Bills", "Transportation", "Shopping", "Entertainment", "Salary", "Other"] %}
+                <option value="{{ category }}" {% if transaction.category == category %}selected{% endif %}>
+                    {{ category }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label>Type:</label>
+        <select name="type" required>
+            <option value="Expense" {% if transaction.type == "Expense" %}selected{% endif %}>Expense</option>
+            <option value="Income" {% if transaction.type == "Income" %}selected{% endif %}>Income</option>
+        </select>
+
+        <label>Date:</label>
+        <input type="date" name="date" value="{{ transaction.date }}" required>
+
+        <button type="submit" class="add-button">Save Changes</button>
+
+        <p><a href="/">Cancel</a></p>
+
+    </form>
+
+</body>
+</html>
